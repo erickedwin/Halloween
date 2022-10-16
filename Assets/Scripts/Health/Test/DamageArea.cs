@@ -7,9 +7,9 @@ public class DamageArea : MonoBehaviour
     [SerializeField]
     float Damage;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.TryGetComponent<IHealthSystem>(out var health) && !health.IsDead())
+        if(other.TryGetComponent<IHealthSystem>(out var health) && !health.IsDead())
         {
             health.Damage(Damage);
         }

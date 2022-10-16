@@ -2,7 +2,7 @@ using Lean.Pool;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Alvaro.GeneralTools
+namespace Nocturne.GeneralTools
 {
     public static class Helpers
     {
