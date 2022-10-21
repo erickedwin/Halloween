@@ -1,4 +1,5 @@
 using UnityEngine;
+using Nocturne.Enums;
 
 public class PlayerAnimation : MonoBehaviour
 {

@@ -24,9 +24,11 @@ public class PlayerInputHandler : MonoBehaviour
         pause = mainPlayerActions.MenuManagers;
         player.Enable();
         pause.Enable();
+        uiControls.Disable();
         generalInput = GetComponent<PlayerInput>();
         cameraMovement = generalInput.actions.FindAction(player.Look.name);
         cameraMovement.Enable();
+        LockCursor();
     }
 
     public bool crouch => player.Crouch.triggered;
@@ -38,6 +40,8 @@ public class PlayerInputHandler : MonoBehaviour
     public bool sprint => player.Sprint.triggered;
 
     public bool sprinting => player.Sprint.IsPressed();
+
+    public Vector2 cameraMove => cameraMovement.ReadValue<Vector2>();
 
     public Vector2 move => player.Move.ReadValue<Vector2>();
 

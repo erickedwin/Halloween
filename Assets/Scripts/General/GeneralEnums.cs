@@ -1,31 +1,55 @@
-public enum PlayerAnimatorLayers
+namespace Nocturne.Enums
 {
-    Walk,
-    Idle
-}
-
-public enum AttributeType
-{
-    Strength,
-    Intelligence,
-    Dexterity
-}
-
-public enum ItemType
-{
-    Healable,
-    ManaGenerator,
-    Standard
-}
-
-public static class PlayerLayersExtensions
-{
-    public static string GetLayer(this PlayerAnimatorLayers layer)
+    public enum PlayerStatus
     {
-        switch (layer)
+        Idle,
+        Walking,
+        Sprinting,
+        Crouching
+    }
+    public enum DoorStatus
+    {
+        Open,
+        Closed,
+        Locked
+    }
+
+    public enum ObjectStatus
+    {
+        Idle,
+        Used
+    }
+
+    public enum PlayerAnimatorLayers
+    {
+        Walk,
+        Idle
+    }
+
+    public enum AttributeType
+    {
+        Strength,
+        Intelligence,
+        Dexterity
+    }
+
+    public enum ItemType
+    {
+        Healable,
+        ManaGenerator,
+        Standard
+    }
+
+    public static class PlayerLayersExtensions
+    {
+        public static string GetLayer(this PlayerAnimatorLayers layer)
         {
-            case PlayerAnimatorLayers.Walk: return "Walk";
-            default: return "Idle";
+            switch (layer)
+            {
+                case PlayerAnimatorLayers.Walk: return "Walk";
+                default: return "Idle";
+            }
         }
     }
 }
+

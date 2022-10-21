@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d31ccecf16173714483a8de8b6a04b4e, type: 3}
   m_Name: ColoredHeaderCreatorSettings
   m_EditorClassIdentifier: 
-  headerText: Enviroment
-  headerColor: {r: 0, g: 0.5188679, b: 0.20944044, a: 1}
+  headerText: Post-Process
+  headerColor: {r: 0.3490566, g: 0, b: 0.050728213, a: 1}
   editorOnly: 1
   textAlignmentOptions: 0
   fontStyleOptions: 0
