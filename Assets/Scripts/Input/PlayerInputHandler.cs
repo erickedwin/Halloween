@@ -56,6 +56,8 @@ public class PlayerInputHandler : MonoBehaviour
     //UI Controls
     public bool pauseMenu => pause.Pause.triggered;
 
+    public bool inventory => pause.Inventory.triggered;
+
     public bool nextPage => uiControls.NextPage.triggered;
 
     public bool previousPage => uiControls.PreviousPage.triggered;

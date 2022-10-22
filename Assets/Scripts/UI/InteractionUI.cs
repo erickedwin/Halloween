@@ -12,7 +12,8 @@ public class InteractionUI : MonoBehaviour
 
     public void DetectedInteractable()
     {
-        textInteraction.text = "Interactuar";
+        //TODO: make this text dynamic.
+        textInteraction.text = "Interact";
     }
 
     public void LeftInteractable()

@@ -17,6 +17,9 @@ namespace Yandere.Doors
         [SerializeField]
         private Vector3 closedRotation;
 
+        [SerializeField]
+        private float time = 0.4f;
+
         private Vector3 originalRotation;
 
         [SerializeField]
@@ -75,14 +78,14 @@ namespace Yandere.Doors
         {
             //Add some sound effect if possible
             currentState = DoorState.Closed;
-            currentDoor.DOLocalRotate(closedRotation, 0.4f);
+            currentDoor.DOLocalRotate(closedRotation, time);
         }
 
         public void OpenDoor()
         {
             //Add some sound effect if possible
             currentState = DoorState.Open;
-            currentDoor.DOLocalRotate(openRotation, 0.4f);
+            currentDoor.DOLocalRotate(openRotation, time);
         }
 
         public void SwitchDoorState()
