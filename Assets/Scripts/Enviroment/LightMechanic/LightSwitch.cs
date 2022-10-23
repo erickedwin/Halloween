@@ -1,5 +1,9 @@
-using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 using System;
+using UnityEngine;
+using DG.Tweening;
+using Nocturne.GeneralTools;
 
 public class LightSwitch : MonoBehaviour
 {
@@ -56,8 +60,17 @@ public class LightSwitch : MonoBehaviour
         }
     }
 
+    public void StartFlicker()
+    {
+
+    }
 
     public void Flicker()
+    {
+        
+    }
+
+    public void StopFlicker()
     {
 
     }
