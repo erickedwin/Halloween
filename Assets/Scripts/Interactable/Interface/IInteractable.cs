@@ -9,4 +9,6 @@ public interface IInteractable
     public bool CanInteract();
 
     public float GetRange();
+
+    public string GetMessage();
 }

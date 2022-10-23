@@ -235,6 +235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOn: 0
+  canFlicker: 0
   lights:
   - {fileID: 2033251966307460443}
 --- !u!1 &2033251967864119160
@@ -310,4 +311,5 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   interactionRange: 3
+  message: Start Light
   canInteract: 1

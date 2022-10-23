@@ -10,10 +10,10 @@ public class InteractionUI : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI textInteraction;
 
-    public void DetectedInteractable()
+    public void DetectedInteractable(string message)
     {
         //TODO: make this text dynamic.
-        textInteraction.text = "Interact";
+        textInteraction.text = message;
     }
 
     public void LeftInteractable()

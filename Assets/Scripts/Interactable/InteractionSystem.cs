@@ -18,7 +18,7 @@ public class InteractionSystem : MonoBehaviour
 
     private IInteractable interactable;
 
-    public static Action OnDetectInteractable;
+    public static Action<string> OnDetectInteractable;
 
     public static Action OnLeaveInteractable;
 
@@ -70,7 +70,7 @@ public class InteractionSystem : MonoBehaviour
             if (!isInteracting)
             {
                 isInteracting = true;
-                OnDetectInteractable?.Invoke();
+                OnDetectInteractable?.Invoke(interactable.GetMessage());
                 
             }
         }
