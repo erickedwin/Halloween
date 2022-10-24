@@ -1,7 +1,9 @@
 using DG.Tweening;
 using Nocturne.Enums;
 using Nocturne.GeneralTools;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
@@ -40,6 +42,33 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     [Tooltip("Determina si el jugador debe mantener pulsado o no el boton de sprint para correr. Por defecto, solo basta pulsarlo una vez.")]
     private bool holdToSprint = false;
+    [Space]
+    [Header("Stamina")]
+    [SerializeField]
+    private bool usesStamina = false;
+    [SerializeField]
+    private float maxStamina = 100f;
+    private float stamina;
+    [SerializeField]
+    private float delayRegen = 1f;
+
+    private float delay;
+    [SerializeField]
+    private float drain = 1f;
+
+    [SerializeField]
+    private float regenMoving = 0.5f;
+
+    [SerializeField]
+    private float regenStill = 0.8f;
+
+    [SerializeField]
+    private Image staminaBar;
+
+    [SerializeField]
+    TextMeshProUGUI textStamina;
+
+    bool exausted;
 
     [Space]
     [Header("Salto")]
@@ -130,6 +159,9 @@ public class PlayerMovement : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         currentTransform = gameObject.transform;
         heightPlayer = characterController.height;
+
+        stamina = maxStamina;
+        delay = delayRegen;
     }
 
     // Update is called once per frame
@@ -143,6 +175,10 @@ public class PlayerMovement : MonoBehaviour
         CrouchManager();
         JumpHandler();
         JumpManagement();
+        if (usesStamina)
+        {
+            StaminaHandler();
+        }
     }
 
     private void FixedUpdate()
@@ -307,10 +343,15 @@ public class PlayerMovement : MonoBehaviour
 
     #endregion Salto
 
-    #region Sprint
-
+    #region SprintAndStamina
     private bool CanSprint()
     {
+        if (exausted)
+        {
+            isRunning = false;
+            return isRunning;
+        }
+
         if (holdToSprint)
         {
             return PlayerInputHandler.instance.sprinting && input.y > 0;
@@ -321,7 +362,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 isRunning = true;
             }
-            if (input.y <= 0 && isRunning)
+            if ((input.y <= 0 && isRunning))
             {
                 isRunning = false;
             }
@@ -330,7 +371,56 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    #endregion Sprint
+    private void StaminaHandler()
+    {
+        
+        if (IsSprinting())
+        {
+            DrainStamina();
+            delay = delayRegen;
+        }
+        else
+        {
+            if(delay > 0)
+            {
+                delay -= Time.deltaTime;
+            }
+            else
+            {
+                RecoverStamina();
+            }
+            
+        }
+
+        staminaBar.fillAmount = stamina / maxStamina;
+        textStamina.text = stamina.ToString();
+    }
+
+    public void DrainStamina()
+    {
+        stamina = Mathf.Clamp(stamina - (drain * Time.deltaTime * 10f), 0, maxStamina);
+        if (stamina <= 0 && !exausted)
+        {
+            exausted = true;
+            delay *= 2f;
+        }
+    }
+
+    public void RecoverStamina()
+    {
+        if(stamina < maxStamina)
+        {
+            float gain = input.magnitude <= 0 ? regenStill : regenMoving;
+            stamina = Mathf.Clamp(stamina + gain * Time.deltaTime * 10f, 0, maxStamina);
+        }
+        else
+        {
+            if (exausted) exausted = false;
+        }
+        
+    }
+
+    #endregion SprintAndStamina
 
     #region Agachado
 
