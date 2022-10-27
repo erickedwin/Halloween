@@ -14,7 +14,7 @@ public class Waypoints : MonoBehaviour
     bool randomPath;
 
     [SerializeField]
-    AIDestinationSetter targetAI;
+    EnemyAIStandard targetAI;
 
     void Start()
     {
@@ -24,37 +24,42 @@ public class Waypoints : MonoBehaviour
         }
 
         selectedIndex = Random.Range(0, positions.Length - 1);
-        targetAI.target = positions[selectedIndex];
+        targetAI.SetDestination(positions[selectedIndex]);
     }
     
     public void ChangeWaypoint()
     {
-        print("LLegado a destino");
-        StartCoroutine(ChangePosition());
+        if(targetAI.currentStatus == EnemyStatus.Patrolling)
+            StartCoroutine(ChangePosition());
     }
 
-    public void SetQuickWaypoint()
+    public void QuitPatrol()
     {
-        targetAI.target = positions[selectedIndex];
+        StopCoroutine(ChangePosition());
     }
 
     IEnumerator ChangePosition()
     {
         yield return Helpers.GetWait(4f);
-        if (randomPath)
+        if (targetAI.currentStatus == EnemyStatus.Patrolling)
         {
-            int newIndex = Random.Range(0, positions.Length - 1);
-            selectedIndex = newIndex;
-            targetAI.target = positions[selectedIndex];
-        }
-        else
-        {
-            selectedIndex++;
-            if (selectedIndex >= positions.Length)
+            if (randomPath)
             {
-                selectedIndex = 0;
+                int newIndex = Random.Range(0, positions.Length - 1);
+                selectedIndex = newIndex;
+                targetAI.SetDestination(positions[selectedIndex]);
             }
-            targetAI.target = positions[selectedIndex];
+            else
+            {
+                selectedIndex++;
+                if (selectedIndex >= positions.Length)
+                {
+                    selectedIndex = 0;
+                }
+                targetAI.SetDestination(positions[selectedIndex]);
+            }
         }
+        
+
     }
 }

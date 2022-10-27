@@ -23,9 +23,9 @@ public class LightsManager : MonoBehaviour
 
     bool finished;
 
-    public static event Action<int, LightSwitch> OnTurnedOn;
+    public static event Action<LightMinigame> OnTurnedOn;
 
-    public static event Action<int, LightSwitch> OnTurnedOff;
+    public static event Action<LightMinigame> OnTurnedOff;
 
     void Start()
     {
@@ -38,6 +38,7 @@ public class LightsManager : MonoBehaviour
     public void LightOn(LightMinigame detectedLight)
     {
         lightsTurned++;
+        OnTurnedOn?.Invoke(detectedLight);
         if (lightsTurned >= requiredLights && !finished)
         {
             finished = true;
@@ -48,6 +49,7 @@ public class LightsManager : MonoBehaviour
     public void LightOff(LightMinigame detectedLight)
     {
         lightsTurned--;
+        OnTurnedOff?.Invoke(detectedLight);
         if (lightsTurned < requiredLights && finished)
         {
             finished = false;
