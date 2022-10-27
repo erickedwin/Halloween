@@ -1,9 +1,9 @@
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
-using Yandere.Enums;
+using Enemy.Enums;
 
-namespace Yandere.Doors
+namespace Enemy.Doors
 {
     public class DoubleSliderDoorController : MonoBehaviour, IDoorController
     {

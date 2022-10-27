@@ -1,6 +1,6 @@
-using Yandere.Enums;
+using Enemy.Enums;
 
-namespace Yandere.Doors
+namespace Enemy.Doors
 {
     public interface IDoorController
     {

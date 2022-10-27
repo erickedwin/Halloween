@@ -1,4 +1,4 @@
-﻿namespace Yandere.Enums
+﻿namespace Enemy.Enums
 {
     public enum DoorState
     {
