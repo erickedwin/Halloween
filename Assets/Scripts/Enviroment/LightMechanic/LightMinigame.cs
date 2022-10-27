@@ -41,7 +41,7 @@ public class LightMinigame : MonoBehaviour
     }
 
 
-    private void TurnOn()
+    public void TurnOn()
     {
         isOn = true;
         for (int i = 0; i < lights.Length; i++)
@@ -51,7 +51,7 @@ public class LightMinigame : MonoBehaviour
         TurnedOn?.Invoke(this);
     }
 
-    private void TurnOff()
+    public void TurnOff()
     {
         isOn = false;
         for (int i = 0; i < lights.Length; i++)

@@ -24,7 +24,8 @@ public class EnemyAIStandard : MonoBehaviour
     
     void Start()
     {
-        if(targetAI == null) targetAI = GetComponent<AIDestinationSetter>();
+        ListLights = new List<LightMinigame>();
+        if (targetAI == null) targetAI = GetComponent<AIDestinationSetter>();
         currentStatus = EnemyStatus.Patrolling;
         previousStatus = EnemyStatus.Patrolling;
         timeSearch = maxTimeSearch;
@@ -47,8 +48,11 @@ public class EnemyAIStandard : MonoBehaviour
             currentStatus = EnemyStatus.Deactivating;
             targetAI.target = light.transform;
         }
-        
-        
+    }
+
+    public void TurnOffLight(LightMinigame light)
+    {
+        light.TurnOff();
     }
 
     public void SetDestination(Transform destination)
