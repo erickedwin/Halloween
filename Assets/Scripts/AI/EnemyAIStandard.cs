@@ -97,7 +97,7 @@ public class EnemyAIStandard : MonoBehaviour
         {
             if(Vector3.Distance(gameObject.transform.position, currentLightTarget.gameObject.transform.position) < 5f)
             {
-                print("LLego a luz");
+                //print("LLego a luz");
                 TurnOffLight();
             }
         }
