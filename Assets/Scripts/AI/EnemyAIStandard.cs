@@ -16,6 +16,8 @@ public class EnemyAIStandard : MonoBehaviour
 
     float timeSearch;
 
+    LightMinigame currentLightTarget;
+
     public Transform cacheLatestPatrolPosition { get; set; }
 
     public EnemyStatus currentStatus;
@@ -42,6 +44,7 @@ public class EnemyAIStandard : MonoBehaviour
         if(previousStatus != currentStatus) previousStatus = currentStatus;
 
         ListLights.Add(light);
+        if(currentLightTarget == null) currentLightTarget = light;
 
         if (currentStatus == EnemyStatus.Patrolling)
         {
@@ -50,9 +53,10 @@ public class EnemyAIStandard : MonoBehaviour
         }
     }
 
-    public void TurnOffLight(LightMinigame light)
+    public void TurnOffLight()
     {
-        light.TurnOff();
+        if (currentLightTarget != null)
+            currentLightTarget.TurnOff();
     }
 
     public void SetDestination(Transform destination)
@@ -72,21 +76,31 @@ public class EnemyAIStandard : MonoBehaviour
             //Go to the next light.
             if(targetAI.target == light.transform)
             {
-                targetAI.target = ListLights.FirstOrDefault().transform;
+                currentLightTarget = ListLights.FirstOrDefault();
+                targetAI.target = currentLightTarget.transform;
             }
         }
 
-        if(ListLights.Count <= 0)
+        if(ListLights.Count == 0)
         {
             currentStatus = EnemyStatus.Patrolling;
             //Que vuelva a patrullar como antes.
             targetAI.target = cacheLatestPatrolPosition;
+            currentLightTarget = null;
         }
     }
 
     private void Update()
     {
-        
+        if(currentStatus == EnemyStatus.Deactivating
+            && currentLightTarget != null)
+        {
+            if(Vector3.Distance(gameObject.transform.position, currentLightTarget.gameObject.transform.position) < 5f)
+            {
+                print("LLego a luz");
+                TurnOffLight();
+            }
+        }
     }
 
     private void OnEnable()

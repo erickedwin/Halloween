@@ -16,8 +16,16 @@ public class Waypoints : MonoBehaviour
     [SerializeField]
     EnemyAIStandard targetAI;
 
+    [SerializeField]
+    float timeInterval = 4f;
+
     void Start()
     {
+        if(targetAI == null)
+        {
+            Debug.LogError("Asigna un AI que utilizara estoy waypoints");
+        }
+
         if(positions.Length < 2)
         {
             Debug.LogError("Debe haber más de 1 posicion establecida para el waypoint");
@@ -40,7 +48,7 @@ public class Waypoints : MonoBehaviour
 
     IEnumerator ChangePosition()
     {
-        yield return Helpers.GetWait(4f);
+        yield return Helpers.GetWait(timeInterval);
         if (targetAI.currentStatus == EnemyStatus.Patrolling)
         {
             if (randomPath)
