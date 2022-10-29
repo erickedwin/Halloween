@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 989bf9619d41c5b4faae1d3aa2eb74e0, type: 3}
+  m_Name: Settings
+  m_EditorClassIdentifier: 
+  volumeMusic: 0
+  volumeEffects: 0
+  volumeVoice: 0
+  resolution: 0
+  fullScreen: 1
+  runOnBackground: 0
+  vSyncEnabled: 1
+  frameRateLimit: 66
+  FOV: 58
+  enabledShadow: 1
+  drawDistance: 0
+  sensitivityX: 0.4
+  sensitivityY: 0.4
+  holdToSprint: 0
+  holdToCrouch: 0

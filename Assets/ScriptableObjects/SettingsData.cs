@@ -16,7 +16,7 @@ public class SettingsData : ScriptableObject
     public float volumeVoice;
 
     [Header("Display")]
-    public float resolution;
+    public int resolution;
 
     public bool fullScreen = true;
 
@@ -25,7 +25,7 @@ public class SettingsData : ScriptableObject
     public bool vSyncEnabled = true;
 
     //TODO: make it an enum.
-    public float frameRateLimit = 60;
+    public int frameRateLimit = 60;
 
     public float FOV = 60;
 
@@ -35,9 +35,9 @@ public class SettingsData : ScriptableObject
     public float drawDistance;
 
     [Header("Input")]
-    public float sensitivityX;
+    public float sensitivityX = 1.5f;
 
-    public float sensitivityY;
+    public float sensitivityY = 1.5f;
 
     public bool holdToSprint = false;
 
@@ -51,6 +51,8 @@ public class SettingsData : ScriptableObject
 
         FOV = 60;
 
+        vSyncEnabled = true;
+
         frameRateLimit = 60;
 
         enabledShadow = true;
@@ -58,9 +60,14 @@ public class SettingsData : ScriptableObject
         holdToSprint = false;
 
         holdToCrouch = false;
+
+        sensitivityX = 1.5f;
+
+        sensitivityY = 1.5f;
     }
 
-    public void DetectSettings()
+    public void DetectSettings(int detectCompatibleResolutions)
     {
+        resolution = detectCompatibleResolutions;
     }
 }

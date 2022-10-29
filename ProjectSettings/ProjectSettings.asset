@@ -608,7 +608,7 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLDecompressionFallback: 0
   scriptingDefineSymbols:
-    1: DoorHandler
+    1: 
     13: DoorHandler
   additionalCompilerArguments: {}
   platformArchitecture: {}
@@ -616,7 +616,7 @@ PlayerSettings:
     Standalone: 1
   il2cppCompilerConfiguration: {}
   managedStrippingLevel:
-    Standalone: 2
+    Standalone: 1
   incrementalIl2cppBuild: {}
   suppressCommonWarnings: 1
   allowUnsafeCode: 0
