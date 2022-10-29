@@ -9564,7 +9564,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1206765624}
         m_TargetAssemblyTypeName: SettingsManager, Assembly-CSharp
-        m_MethodName: SetSensitivityX
+        m_MethodName: SetSensitivityY
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

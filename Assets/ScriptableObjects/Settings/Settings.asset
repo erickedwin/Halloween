@@ -19,11 +19,11 @@ MonoBehaviour:
   fullScreen: 1
   runOnBackground: 0
   vSyncEnabled: 1
-  frameRateLimit: 66
-  FOV: 58
+  frameRateLimit: 60
+  FOV: 60
   enabledShadow: 1
   drawDistance: 0
-  sensitivityX: 0.4
-  sensitivityY: 0.4
-  holdToSprint: 0
-  holdToCrouch: 0
+  sensitivityX: 1.5
+  sensitivityY: 1.5
+  holdToSprint: 1
+  holdToCrouch: 1

@@ -120,6 +120,9 @@ public class PlayerMovement : MonoBehaviour
 
     private float heightPlayer;
 
+    [SerializeField]
+    private bool holdToCrouch = false;
+
     //Variables Generales.
     private CharacterController characterController;
 
@@ -444,9 +447,23 @@ public class PlayerMovement : MonoBehaviour
             Uncrouch(PlayerStatus.Sprinting);
             return;
         }
-        if (PlayerInputHandler.instance.crouch)
+        if (!holdToCrouch)
         {
-            if (playerStatus != PlayerStatus.Crouching)
+            if (PlayerInputHandler.instance.crouch)
+            {
+                if (playerStatus != PlayerStatus.Crouching)
+                {
+                    Crouch(true);
+                }
+                else
+                {
+                    Uncrouch();
+                }
+            }
+        }
+        else
+        {
+            if (PlayerInputHandler.instance.crouching)
             {
                 Crouch(true);
             }
@@ -455,6 +472,7 @@ public class PlayerMovement : MonoBehaviour
                 Uncrouch();
             }
         }
+        
     }
 
     private void Crouch(bool changeState = true)
@@ -526,4 +544,26 @@ public class PlayerMovement : MonoBehaviour
     }
 
     #endregion Estados
+
+    public void ChangeCrouchMode(bool crouchHoldMode)
+    {
+        holdToCrouch = crouchHoldMode;
+    }
+
+    public void ChangeSprintMode(bool sprintHold)
+    {
+        holdToSprint = sprintHold;
+    }
+
+    private void OnEnable()
+    {
+        SettingsManager.OnCrouchTypeChanged += ChangeCrouchMode;
+        SettingsManager.OnSprintTypeChanged += ChangeSprintMode;
+    }
+
+    private void OnDisable()
+    {
+        SettingsManager.OnCrouchTypeChanged -= ChangeCrouchMode;
+        SettingsManager.OnSprintTypeChanged -= ChangeSprintMode;
+    }
 }
