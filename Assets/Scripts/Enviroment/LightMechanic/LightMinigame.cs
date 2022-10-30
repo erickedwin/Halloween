@@ -22,9 +22,21 @@ public class LightMinigame : MonoBehaviour
     {
         if (isOn)
         {
+            if(this.CompareTag("Generador")){
             for (int i = 0; i < lights.Length; i++)
             {
+                if(i==0){
                 lights[i].enabled = true;
+                }else{
+                lights[i].enabled = false;
+                }
+                
+            }
+            }else{
+                for (int i = 0; i < lights.Length; i++)
+            {
+                lights[i].enabled = true;
+            }
             }
         }
     }
@@ -45,20 +57,48 @@ public class LightMinigame : MonoBehaviour
     public void TurnOn()
     {
         isOn = true;
+        if(this.CompareTag("Generador")){
         for (int i = 0; i < lights.Length; i++)
         {
+            //lights[i].enabled = true;
+            if(i==0){
+                lights[i].enabled = false;
+                }else{
+                lights[i].enabled = true;
+                }       
+        } 
+        }else{
+            for (int i = 0; i < lights.Length; i++)
+            {
             lights[i].enabled = true;
+            }
         }
+        
         TurnedOn?.Invoke(this);
     }
 
     public void TurnOff()
     {
         isOn = false;
+        if(this.CompareTag("Generador")){
+            for (int i = 0; i < lights.Length; i++)
+        {
+            
+            //lights[i].enabled = false;
+            if(i==0){
+                lights[i].enabled = true;
+                }else{
+                lights[i].enabled = false;
+                }
+        } 
+        } else {
         for (int i = 0; i < lights.Length; i++)
         {
             lights[i].enabled = false;
         }
+        }
+        
+        
         TurnedOff?.Invoke(this);
     }
 

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Candice Agent
   - Enemy
+  - Generador
   layers:
   - Default
   - TransparentFX
