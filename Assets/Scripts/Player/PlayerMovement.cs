@@ -396,7 +396,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         staminaBar.fillAmount = stamina / maxStamina;
-        textStamina.text = stamina.ToString();
+        textStamina.text = stamina.ToString("0");
     }
 
     public void DrainStamina()

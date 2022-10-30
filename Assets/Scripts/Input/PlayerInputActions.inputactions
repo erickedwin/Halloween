@@ -1006,22 +1006,33 @@
                 },
                 {
                     "name": "",
-                    "id": "5b4461bf-9042-4743-a40e-fddff6fba398",
+                    "id": "fde1283c-dd14-41b3-9ec0-c6aa283c93a7",
                     "path": "<Keyboard>/tab",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Inventory",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "b20998ce-a9e7-4404-a412-67e466333d92",
+                    "id": "09b1a327-585f-4988-b284-c9b4877282ac",
                     "path": "<Gamepad>/select",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e77b9938-096d-45c8-8e74-7631ca0ccd25",
+                    "path": "<Keyboard>/minus",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "Inventory",
                     "isComposite": false,
                     "isPartOfComposite": false
