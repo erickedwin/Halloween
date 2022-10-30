@@ -143,7 +143,7 @@ MonoBehaviour:
   characterTransform: {fileID: 4020446320811929467}
   collision:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 1033
   normalSpeed: 5
   sprintSpeed: 9
   crouchSpeed: 2.5
