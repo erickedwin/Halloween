@@ -92,31 +92,46 @@ public class SettingsManager : MonoBehaviour
     public void HoldToSprint(bool hold)
     {
         SettingsData.holdToSprint = hold;
-        OnSprintTypeChanged?.Invoke(hold);
-        if(canSave) SaveSettings();
+        
+        if (canSave)
+        {
+            OnSprintTypeChanged?.Invoke(hold);
+            SaveSettings();
+        }
     }
 
     public void HoldToCrouch(bool hold)
     {
         SettingsData.holdToCrouch = hold;
-        OnCrouchTypeChanged?.Invoke(hold);
-        if (canSave) SaveSettings();
+        
+        if (canSave)
+        {
+            OnCrouchTypeChanged?.Invoke(hold);
+            SaveSettings();
+        }
     }
 
     public void SetSensitivityX(float sensitivity)
     {
         SettingsData.sensitivityX = sensitivity;
         textXValue.text = $"{sensitivity:0.00}";
-        OnSensitivtyXChanged?.Invoke(sensitivity);
-        if (canSave) SaveSettings();
+        
+        if (canSave)
+        {
+            OnSensitivtyXChanged?.Invoke(sensitivity);
+            SaveSettings();
+        }
     }
 
     public void SetSensitivityY(float sensitivity)
     {
         SettingsData.sensitivityY = sensitivity;
         textYValue.text = $"{sensitivity:0.00}";
-        OnSensitivtyYChanged?.Invoke(sensitivity);
-        if (canSave) SaveSettings();
+        if (canSave)
+        {
+            OnSensitivtyYChanged?.Invoke(sensitivity);
+            SaveSettings();
+        }
     }
 
     public void SetFOV(float fov)
@@ -124,8 +139,12 @@ public class SettingsManager : MonoBehaviour
         fov = (int)Mathf.Clamp(fov, 20, 100);
         SettingsData.FOV = fov;
         textFOVValue.text = $"{fov}";
-        OnFOVChanged?.Invoke((int) fov);
-        if (canSave) SaveSettings();
+        
+        if (canSave)
+        {
+            OnFOVChanged?.Invoke((int)fov);
+            SaveSettings();
+        }
     }
 
     //We don't want to melt the PC with extremely high Frame Rate.
@@ -135,7 +154,10 @@ public class SettingsManager : MonoBehaviour
         SettingsData.frameRateLimit = (int)target;
         Application.targetFrameRate = (int)target;
         textFPSValue.text = $"{target}";
-        if (canSave) SaveSettings();
+        if (canSave)
+        {
+            SaveSettings();
+        }
     }
 
     public void ResetSettings()
@@ -148,6 +170,7 @@ public class SettingsManager : MonoBehaviour
     public void SetUI()
     {
         canSave = false;
+
         vSyncChange.isOn = SettingsData.vSyncEnabled;
         crouchChange.isOn = SettingsData.holdToCrouch;
         sprintChange.isOn = SettingsData.holdToSprint;
@@ -155,10 +178,18 @@ public class SettingsManager : MonoBehaviour
         fovSlider.value = SettingsData.FOV;
         sensitivityYSlide.value = SettingsData.sensitivityY;
         sensitivityXSlide.value = SettingsData.sensitivityX;
+
         textFOVValue.text = $"{SettingsData.FOV}";
         textFPSValue.text = $"{SettingsData.frameRateLimit}";
         textXValue.text = $"{SettingsData.sensitivityX:0.00}";
         textYValue.text = $"{SettingsData.sensitivityY:0.00}";
+
+        OnSprintTypeChanged?.Invoke(SettingsData.holdToSprint);
+        OnCrouchTypeChanged?.Invoke(SettingsData.holdToCrouch);
+        OnSensitivtyXChanged?.Invoke(SettingsData.sensitivityX);
+        OnSensitivtyYChanged?.Invoke(SettingsData.sensitivityY);
+        OnFOVChanged?.Invoke((int)SettingsData.FOV);
+
         canSave = true;
         SaveSettings();
     }
