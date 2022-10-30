@@ -148,7 +148,7 @@ MonoBehaviour:
   sprintSpeed: 9
   crouchSpeed: 2.5
   smoothMovement: 0.07
-  holdToSprint: 1
+  holdToSprint: 0
   usesStamina: 1
   maxStamina: 100
   delayRegen: 1
@@ -163,7 +163,7 @@ MonoBehaviour:
   coyoteTime: 0
   jumpBufferTime: 0
   crouchHeight: 1
-  holdToCrouch: 1
+  holdToCrouch: 0
 --- !u!114 &4020446320811929466
 MonoBehaviour:
   m_ObjectHideFlags: 0
