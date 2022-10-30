@@ -3,7 +3,42 @@ guid: e004acd679384a34f87aaa2b286c1964
 ModelImporter:
   serializedVersion: 20300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: flltgrey
+    second: {fileID: 2100000, guid: 558c09e01d98aa1448abb7c3d0749df7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ground_1
+    second: {fileID: 2100000, guid: 89e35b95e6cf33c4288f7c5bf9ad5c66, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: room_26_152
+    second: {fileID: 2100000, guid: e8e9822f7296e0f459b6bfb606b9ccd7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: room_26_153
+    second: {fileID: 2100000, guid: 6e50729606ce53a4c872b1c0634ac8d4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_1_2
+    second: {fileID: 2100000, guid: f205eb5c38d70c248bfe62d6278beaec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_1_3
+    second: {fileID: 2100000, guid: cf722c5e67130bb4c939f7d8862b0cf4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: white
+    second: {fileID: 2100000, guid: 989bf4022b35f4248927d538b0de38cd, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
