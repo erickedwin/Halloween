@@ -2622,13 +2622,25 @@ PrefabInstance:
       value: -360.522
       objectReference: {fileID: 0}
     - target: {fileID: -8348727703835636329, guid: c088a5193672abc499a0364361ac8b3b, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8348727703835636329, guid: c088a5193672abc499a0364361ac8b3b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 956ebf4999cd87a4781bd1e90dbf19f1, type: 2}
     - target: {fileID: -1172183006904614021, guid: c088a5193672abc499a0364361ac8b3b, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1172183006904614021, guid: c088a5193672abc499a0364361ac8b3b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9ea032bf5a3656940aab91d9e3ce313f, type: 2}
+    - target: {fileID: 202416632387968600, guid: c088a5193672abc499a0364361ac8b3b, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 202416632387968600, guid: c088a5193672abc499a0364361ac8b3b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -2636,6 +2648,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c088a5193672abc499a0364361ac8b3b, type: 3}
       propertyPath: m_Name
       value: Cuadro
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501726717869709730, guid: c088a5193672abc499a0364361ac8b3b, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1501726717869709730, guid: c088a5193672abc499a0364361ac8b3b, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -9185,6 +9201,10 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 562a755e3002c8642ad38197136290c2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -342.726
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 562a755e3002c8642ad38197136290c2, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 562a755e3002c8642ad38197136290c2, type: 3}
       propertyPath: m_Materials.Array.data[0]
