@@ -5,18 +5,18 @@ using UnityEngine;
 using DG.Tweening;
 using Nocturne.GeneralTools;
 
-public class LightMinigame : MonoBehaviour
+public class GeneratorLight : MonoBehaviour
 {
-    [SerializeField]
+     [SerializeField]
     private bool isOn;
 
     [SerializeField]
     private Light[] lights;
 
 
-    public static event Action<LightMinigame> TurnedOn;
+    public static event Action<GeneratorLight> TurnedOn;
 
-    public static event Action<LightMinigame> TurnedOff;
+    public static event Action<GeneratorLight> TurnedOff;
 
     void Start()
     {
@@ -24,7 +24,12 @@ public class LightMinigame : MonoBehaviour
         {
             for (int i = 0; i < lights.Length; i++)
             {
+                if(i==0){
+                lights[i].enabled = false;
+                }else{
                 lights[i].enabled = true;
+                }
+                
             }
         }
     }
