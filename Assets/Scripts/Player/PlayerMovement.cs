@@ -285,9 +285,6 @@ public class PlayerMovement : MonoBehaviour
             OnJump();
         }
 
-        /*
-
-         */
         if (PlayerInputHandler.instance.jumpingUp && CanJumpCut())
         {
             OnJumpCut();
