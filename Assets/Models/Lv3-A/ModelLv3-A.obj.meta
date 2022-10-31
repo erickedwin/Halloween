@@ -18,7 +18,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: room_26_152
-    second: {fileID: 2100000, guid: e8e9822f7296e0f459b6bfb606b9ccd7, type: 2}
+    second: {fileID: 2100000, guid: d45cf6a7f56820f4381c394aea67c37a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -28,12 +28,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: wall_1_2
-    second: {fileID: 2100000, guid: f205eb5c38d70c248bfe62d6278beaec, type: 2}
+    second: {fileID: 2100000, guid: 06a534026ed03744d9ca39e8217486ac, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: wall_1_3
-    second: {fileID: 2100000, guid: cf722c5e67130bb4c939f7d8862b0cf4, type: 2}
+    second: {fileID: 2100000, guid: 06a534026ed03744d9ca39e8217486ac, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
